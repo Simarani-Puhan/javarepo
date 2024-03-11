@@ -1,7 +1,6 @@
 package org.doctorapp.model;
 
 import java.sql.PreparedStatement;
-
 public enum Specialization {
     ORTHO("ORTHOPEDICIAN"),
     PEDIA("PEDIATRICIAN"),
@@ -9,7 +8,6 @@ public enum Specialization {
     GYNAEC("GYNAECOLOGIST"),
     NEURO("NEUROLOGIST"),
     DERMA("DERMATOLOGIST");
-
     private String speciality;
     Specialization(String speciality){
         this.speciality=speciality;

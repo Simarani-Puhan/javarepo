@@ -31,10 +31,8 @@ public class DoctorRepositoryImpl implements IDoctorRepository {
             boolean result = statement.execute();
             System.out.println("One row inserted " + !result);
         } catch (Exception e) {
-
         }
     }
-
     @Override
     public void updateDoctor(int doctorId, double fees) {
         try (Connection connection = DoctorDB.openConnection();
@@ -48,25 +46,20 @@ public class DoctorRepositoryImpl implements IDoctorRepository {
             e.printStackTrace();
         }
     }
-
     @Override
     public void deleteDoctor(int doctorId) {
     }
-
     @Override
     public Doctor findById(int doctorId) {
         return null;
     }
-
     @Override
     public List<Doctor> findAll() {
         List<Doctor> doctorList = new ArrayList<>();
-
         try (Connection connection = DoctorDB.openConnection();
              PreparedStatement statement = connection.prepareStatement(Queries.FINDALLQUERY);
              ResultSet resultSet = statement.executeQuery();
         ) {
-
             while (resultSet.next()) {
                 String doctorName = resultSet.getString("doctor_name");
                 String speciality = resultSet.getString("speciality");
@@ -74,7 +67,6 @@ public class DoctorRepositoryImpl implements IDoctorRepository {
                 int ratings = resultSet.getInt("ratings");
                 int doctorId = resultSet.getInt("doctor_id");
                 Double fees = resultSet.getDouble("fees");
-
                 Doctor doctor = new Doctor(doctorId, doctorName, speciality, fees, experience, ratings);
                 doctorList.add(doctor);
             }
@@ -83,7 +75,6 @@ public class DoctorRepositoryImpl implements IDoctorRepository {
         }
         return doctorList;
     }
-
     @Override
     public List<Doctor> findBySpeciality(String speciality) {
         List<Doctor> doctorList = new ArrayList<>();
@@ -107,7 +98,6 @@ public class DoctorRepositoryImpl implements IDoctorRepository {
                     doctor.setExperience(experience);
                     doctor.setFees(fees);
                     doctor.setRatings(ratings);
-
                     doctorList.add(doctor);
                 }
             }
@@ -116,7 +106,6 @@ public class DoctorRepositoryImpl implements IDoctorRepository {
         }
         return doctorList;
     }
-
     @Override
     public List<Doctor> findBySpecialityAndExp(String speciality, int experience) {
         List<Doctor> doctorList = new ArrayList<>();
@@ -135,7 +124,6 @@ public class DoctorRepositoryImpl implements IDoctorRepository {
                     doctor.setExperience(resultSet.getInt("experience"));
                     doctor.setFees(resultSet.getDouble("fees"));
                     doctor.setRatings(resultSet.getInt("ratings"));
-
                     doctorList.add(doctor);
                 }
             }
@@ -144,7 +132,6 @@ public class DoctorRepositoryImpl implements IDoctorRepository {
         }
         return doctorList;
     }
-
     @Override
     public List<Doctor> findBySpecialityAndLessfees(String speciality, double fees) {
         List<Doctor> doctorList = new ArrayList<>();
@@ -163,7 +150,6 @@ public class DoctorRepositoryImpl implements IDoctorRepository {
                     doctor.setExperience(resultSet.getInt("experience"));
                     doctor.setFees(resultSet.getDouble("fees"));
                     doctor.setRatings(resultSet.getInt("ratings"));
-
                     doctorList.add(doctor);
                 }
             }
@@ -190,7 +176,6 @@ public class DoctorRepositoryImpl implements IDoctorRepository {
                     doctor.setExperience(resultSet.getInt("experience"));
                     doctor.setFees(resultSet.getDouble("fees"));
                     doctor.setRatings(resultSet.getInt("ratings"));
-
                     doctorList.add(doctor);
                 }
             }
@@ -216,7 +201,6 @@ public class DoctorRepositoryImpl implements IDoctorRepository {
                     doctor.setExperience(resultSet.getInt("experience"));
                     doctor.setFees(resultSet.getDouble("fees"));
                     doctor.setRatings(resultSet.getInt("ratings"));
-
                     doctorList.add(doctor);
                 }
             }

@@ -1,5 +1,4 @@
 package org.doctorapp.model;
-
 public class Doctor {
     private Integer doctorId;
     private  String doctorName;
@@ -7,10 +6,8 @@ public class Doctor {
     private double fees;
     private int ratings;
     private int experience;
-
     public Doctor() {
     }
-
     public Doctor(String doctorName, String speciality, double fees, int ratings, int experience) {
         this.doctorName = doctorName;
         this.speciality = speciality;
@@ -18,7 +15,6 @@ public class Doctor {
         this.ratings = ratings;
         this.experience = experience;
     }
-
     public Doctor(Integer doctorId, String doctorName, String speciality, double fees, int ratings, int experience) {
         this.doctorId = doctorId;
         this.doctorName = doctorName;
@@ -27,7 +23,6 @@ public class Doctor {
         this.ratings = ratings;
         this.experience = experience;
     }
-
     public Integer getDoctorId() {
         return doctorId;
     }

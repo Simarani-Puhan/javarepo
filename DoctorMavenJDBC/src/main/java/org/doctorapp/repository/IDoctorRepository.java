@@ -9,7 +9,6 @@ public interface IDoctorRepository {
     void updateDoctor(int doctorId,double fees);
     void deleteDoctor(int doctorId);
     Doctor findById(int doctorId);
-
     List<Doctor> findAll();
     List<Doctor> findBySpeciality(String speciality);
     List<Doctor> findBySpecialityAndExp(String speciality, int experience);
