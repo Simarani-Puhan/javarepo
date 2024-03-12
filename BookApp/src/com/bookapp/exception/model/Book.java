@@ -1,4 +1,4 @@
-package com.bookapp.model;
+package com.bookapp.exception.model;
 
 import java.time.LocalDate;
 

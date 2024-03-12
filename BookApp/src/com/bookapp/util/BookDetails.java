@@ -1,8 +1,7 @@
 package com.bookapp.util;
 
-import com.bookapp.model.Book;
+import com.bookapp.exception.model.Book;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 

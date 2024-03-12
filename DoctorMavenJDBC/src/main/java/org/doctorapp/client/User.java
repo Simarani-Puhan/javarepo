@@ -6,9 +6,7 @@ import org.doctorapp.model.Doctor;
 import org.doctorapp.model.Specialization;
 import org.doctorapp.service.DoctorServiceImpl;
 import org.doctorapp.service.IDoctorService;
-
 import java.util.List;
-
 
 public class User {
     public static void main(String[] args) throws DoctorNotFoundException {
@@ -21,11 +19,17 @@ public class User {
         Doctor doctor4=new Doctor("Sheetal", speciality,900,2,6);
         Doctor doctor5=new Doctor("Shalini", speciality,500,5,7);
         Doctor doctor6=new Doctor("Sri", speciality,600,1,1);
+        doctorService.addDoctor(doctor3);
+        doctorService.addDoctor(doctor4);
+        doctorService.addDoctor(doctor5);
+        doctorService.addDoctor(doctor6);
         doctorService.addDoctor(doctor);
         Doctor doctor1=new Doctor("Ram", speciality,2000,5,5);
         Doctor doctor2=new Doctor("Rita", speciality,1500,3,9);
         doctorService.updateDoctor(1,3000);
         doctorService.updateDoctor(2,1500);
+        doctorService.addDoctor(doctor1);
+        doctorService.addDoctor(doctor2);
 
         int doctorIdToDelete=2;
         doctorService.deleteDoctor(doctorIdToDelete);

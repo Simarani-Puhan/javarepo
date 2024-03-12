@@ -1,8 +1,7 @@
 package com.bookapp.client;
 
 import com.bookapp.exception.BookNotFoundException;
-import com.bookapp.exception.IdNotFoundException;
-import com.bookapp.model.Book;
+import com.bookapp.exception.model.Book;
 import com.bookapp.service.BookServiceImpl;
 import com.bookapp.service.IBookService;
 import com.bookapp.util.BookDetails;
