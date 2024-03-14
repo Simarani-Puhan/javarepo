@@ -33,6 +33,7 @@ public class DoctorRepositoryImpl implements IDoctorRepository {
         } catch (Exception e) {
         }
     }
+
     @Override
     public void updateDoctor(int doctorId, double fees) {
         try (Connection connection = DoctorDB.openConnection();
@@ -46,12 +47,37 @@ public class DoctorRepositoryImpl implements IDoctorRepository {
             e.printStackTrace();
         }
     }
+
     @Override
     public void deleteDoctor(int doctorId) {
     }
+
     @Override
-    public Doctor findById(int doctorId) {
-        return null;
+    public Doctor findById(int doctorId) throws SQLException {
+
+        Doctor doctor = null;
+
+        try (
+            Connection connection = DoctorDB.openConnection();
+            PreparedStatement statement = connection.prepareStatement(Queries.FINDBYIDQUERY);)
+        {
+                statement.setInt(1, doctorId);
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    Integer doctor_id = resultSet.getInt("doctor_id");
+                    String doctorName = resultSet.getString("doctor_name");
+                    String speciality = resultSet.getString("speciality");
+                    double fees = resultSet.getDouble("fees");
+                    int ratings = resultSet.getInt("ratings");
+                    int experience = resultSet.getInt("experience");
+                    doctor = new Doctor(doctor_id, doctorName, speciality, fees, ratings, experience);
+                }
+            }
+                catch (Exception e) {
+                    e.printStackTrace();
+        }
+        return doctor;
     }
     @Override
     public List<Doctor> findAll() {
